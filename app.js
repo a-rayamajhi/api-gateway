@@ -19,14 +19,15 @@ var indexRouter = require("./routes/index");
 var apiCatalog = require("./routes/api-catalog");
 
 var app = express();
+// configure dotenv to load .env file
+require("dotenv").config();
 
 /**
  *
  * Database connection
  */
 
-const conn =
-  "mongodb+srv://admin:admin@ems.nvxn7.mongodb.net/api-gateway?retryWrites=true&w=majority";
+const conn = process.env.DATABASE_URL;
 
 mongoose
   .connect(conn, {
